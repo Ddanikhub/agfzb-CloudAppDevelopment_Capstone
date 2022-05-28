@@ -7,7 +7,7 @@ env:
   IBM_CLOUD_REGION: us-south
   IBM_CLOUD_GROUP: default
   IBM_CLOUD_SPACE: djangoserver-space
-  IBM_CLOUD_ORG: ddorohov@gmail.com
+  IBM_CLOUD_ORG: ddorohov
   MANIFEST_NAME: manifest.yml
   IBM_CLOUD_API: jwlV1GYG-jE0eqeRIUVEjF9ESvM5kXQ4FuUycrsGU7-y
 
