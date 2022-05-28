@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+from re import template
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,8 +28,8 @@ DEBUG = True
 
 APPEND_SLASH = True
 
-ALLOWED_HOSTS = ["localhost"]
-
+ALLOWED_HOSTS = ['ddorohov.mybluemix.net']
+#ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'djangobackend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates/djangoapp')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

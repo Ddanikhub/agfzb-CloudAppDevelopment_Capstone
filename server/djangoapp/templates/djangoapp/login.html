@@ -1,0 +1,36 @@
+{% extends 'djangoapp/index.html' %}
+
+{% block content %}
+<div class="container">
+  <p style="text-align: center; font-size: 30px; font-weight: bold; padding-top: 30px;">Log In</p>
+</div>
+
+<div class="container">
+  <!-- Stylize Login form -->
+  <form action="{% url 'djangoapp:login' %}" method="post">
+    {% csrf_token %}
+    <div class="container">
+      <!--Stylize root div with .container class -->
+      <div class="form-group">
+        <!--Stylize second div with .form-group class -->
+        <label for="username"><b>User Name: </b></label>
+        <input id="username" class="form-group" type="text" placeholder="Enter User Name: " name="username" required>
+        <!--Stylize input with .form-control class -->
+        <label for="psw"><b>Password: </b></label>
+        <input id="psw" type="password" class="form-group" placeholder="Enter Password: " name="psw" required>
+        <!--Stylize input with .form-control class -->
+      </div>
+      {% if message %}
+      <div class="alert alert-warning">
+        <!--Stylize the message paragraph with .alert and .alert-warning class -->
+        {{ message }}
+      </div>
+      {% endif %}
+      <button class="btn btn-primary" type="submit">Login</button>
+      <!--Stylize button with .btn and .btn-primary class -->
+    </div>
+  </form>
+</div>
+
+
+{% endblock content %}
