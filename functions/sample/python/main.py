@@ -9,9 +9,16 @@
 #
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
+from cloudant.result import Result, ResultByKey
+from requests import ConnectionError, ReadTimeout, RequestException, ValueError
+
+import json
+
 import requests
 
-
+creds = open('.creds-sample.json')
+auth = json.load(creds)
+creds.close()
 def main(dict):
     databaseName = "dealerships"
 
@@ -21,12 +28,15 @@ def main(dict):
             api_key=dict["IAM_API_KEY"],
             connect=True,
         )
-        print("Databases: {0}".format(client.all_dbs()))
+        print("dbs: {0}".format(client.all_dbs()))
     except CloudantException as ce:
         print("unable to connect")
         return {"error": ce}
     except (requests.exceptions.RequestException, ConnectionResetError) as err:
         print("connection error")
         return {"error": err}
+    finally:
+        return {"dbs": client.all_dbs()}
+    
+main(auth)
 
-    return {"dbs": client.all_dbs()}
