@@ -73,7 +73,7 @@ def get_dealers_from_cf(url, **kwargs):
         for dealer in dealers:
             dealer_doc = dealer["doc"]
             dealer_obj = CarDealer(address=dealer_doc["address"], city=dealer_doc["city"],
-                                   full_name=dealer_doc["full_name"], id=dealer_doc["id"], 
+                                   full_name=dealer_doc["full_name"], dealerID=dealer_doc["dealerID"], 
                                    lat=dealer_doc["lat"], long=dealer_doc["long"],
                                    st=dealer_doc["st"], zip=dealer_doc["zip"])
             results.append(dealer_obj)
@@ -84,22 +84,22 @@ def get_dealers_from_cf(url, **kwargs):
 # def get_dealer_by_id_from_cf(url, dealerId):
 # - Call get_request() with specified arguments
 # - Parse JSON results into a DealerView object list
-def get_dealer_by_id_from_cf(url, id):
-    json_result = get_request(url, id=id)
+def get_dealer_by_id_from_cf(url, dealerID):
+    json_result = get_request(url, dealerID=dealerID)
     if json_result:
         dealers = json_result["body"]
         dealer_doc = dealers[0]
         dealer_obj = CarDealer(address=dealer_doc["address"], city=dealer_doc["city"],
-                               full_name=dealer_doc["full_name"], id=dealer_doc["id"], 
+                               full_name=dealer_doc["full_name"], dealerID=dealer_doc["dealerID"], 
                                lat=dealer_doc["lat"], long=dealer_doc["long"],
                                st=dealer_doc["st"], zip=dealer_doc["zip"])
     return dealer_obj
 
 def get_dealer_reviews_from_cf(url, **kwargs):
     results = []
-    id = kwargs.get("id")
+    dealerID = kwargs.get("dealerID")
     if id:
-        json_result = get_request(url, id=id)
+        json_result = get_request(url, dealerID=dealerID)
     else:
         json_result = get_request(url)
     # print(json_result)
@@ -110,8 +110,8 @@ def get_dealer_reviews_from_cf(url, **kwargs):
                                    name=dealer_review["name"],
                                    purchase=dealer_review["purchase"],
                                    review=dealer_review["review"])
-            if "id" in dealer_review:
-                review_obj.id = dealer_review["id"]
+            if "dealerID" in dealer_review:
+                review_obj.dealerID = dealer_review["dealerID"]
             if "purchase_date" in dealer_review:
                 review_obj.purchase_date = dealer_review["purchase_date"]
             if "car_make" in dealer_review:
