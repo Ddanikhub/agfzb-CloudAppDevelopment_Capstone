@@ -1,9 +1,6 @@
 import requests
 import json
 # import related models here
-from requests.auth import HTTPBasicAuth
-
-from server.djangoapp.models import CarDealer, DealerReview
 
 import logging
 # import related models here
