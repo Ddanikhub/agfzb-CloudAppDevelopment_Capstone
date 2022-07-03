@@ -8,4 +8,4 @@
     routes:
       - route: ddorohov.mybluemix.net/static
     memory: 128M
-    buildpack: staticfile_buildpack
+    buildpacks: staticfile_buildpack
