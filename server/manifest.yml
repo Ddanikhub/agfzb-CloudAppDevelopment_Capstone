@@ -4,7 +4,7 @@
       - route: ddorohov.mybluemix.net
     memory: 128M
     buildpacks: python_buildpack
-  - name: djangoapp-nginx
+      - name: djangoapp-nginx
     routes:
       - route: ddorohov.mybluemix.net/static
     memory: 128M
