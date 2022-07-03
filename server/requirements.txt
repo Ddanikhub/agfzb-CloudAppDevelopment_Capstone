@@ -6,4 +6,6 @@ ibm-watson
 ibm-cloud-sdk-core
 django-cors-headers
 djangorestframework
-pyyaml
+ibmcloudant
+
+
