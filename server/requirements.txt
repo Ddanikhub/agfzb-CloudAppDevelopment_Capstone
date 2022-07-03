@@ -1,4 +1,9 @@
 requests
 Django
-gunicorn==20.0.4
-Pillow==8.0.1
+gunicorn
+Pillow
+ibm-watson
+ibm-cloud-sdk-core
+django-cors-headers
+djangorestframework
+pyyaml
